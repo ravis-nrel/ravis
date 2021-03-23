@@ -1,0 +1,121 @@
+.forecast-item {
+  position: relative;
+
+  button {
+    float: right;
+    margin-right: 30px !important;
+    padding: 0 !important;
+    font-size: 1em !important;
+    background-color: #50B5EC !important;
+  }
+
+  .cutout {
+    cursor: pointer;
+  }
+
+  .content {
+    svg {
+      position: absolute;
+      left: 7px;
+      bottom: 5px;
+
+      .line {
+        stroke: #50B5EC;
+        stroke-width: 2px;
+        stroke-dasharray: 8;
+        fill: none;
+      }
+
+      .alert-line {
+        stroke: rgb(218, 80, 236);
+        stroke-width: 2px;
+        stroke-dasharray: 2;
+        fill: none;
+        opacity: 0.6;
+      }
+
+      .range-area {
+        fill: #4C543E;
+        stroke: none;
+      }
+
+      .median-line {
+        fill: none;
+        stroke: #FDC844;
+        stroke-width: 4;
+      }
+
+      .flexi-line {
+        fill: none;
+        stroke: #dd5d12;
+        stroke-width: 3;
+      }
+
+      .x-axis {
+        // fill: #112C3C;
+        text {
+          /*text-shadow: 1px 1px 10px #50B5EC;  */
+          font-weight: bold;
+        }
+
+      }
+
+      .median-range {
+        line {
+          stroke: #50B5EC;
+          stroke-width: 1px;
+          stroke-dasharray: 8;
+          fill: none;
+        }
+        text {
+          fill: #50B5EC;
+          /*text-shadow: 1px 1px 10px #50B5EC;*/
+          text-anchor: middle;
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+
+      .curtain {
+        fill: #112C3C;
+      }
+    }
+
+    .content-head {
+
+      color: #fff;
+      font-family: Helvetica, Georgia, sans-serif;
+
+
+      span {
+        text-shadow: 0px 0px 0px #50B5EC;
+      }
+
+      .ev {
+        top: 6px;
+        left: 10px;
+      }
+      .ge {
+        top: 23px;
+        left: 10px;
+      }
+      .cd {
+        top: 6px;
+        left: 390px;
+      }
+      .ti {
+        top: 23px;
+        left: 390px;
+      }
+      .dnx {
+        top: 40px;
+        left: 10px;
+      }
+      .upx {
+        top: 40px;
+        left: 390px;
+      }
+    }
+
+  }
+}

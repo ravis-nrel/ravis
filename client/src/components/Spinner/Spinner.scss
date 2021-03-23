@@ -1,0 +1,48 @@
+$spCol: #50b5ec;
+
+.col-sm-2 {
+	padding: 10px;
+	border-radius: 4px;
+	height: 200px;
+	margin-bottom: 10px;
+}
+
+.sp {
+	width: 160px;
+	height: 160px;
+	clear: both;
+	margin: 20px auto;
+}
+
+/* Spinner Hydrogen */
+.sp-hydrogen {
+	position: relative;
+	border: 1px $spCol solid;
+	border-radius: 50%;
+	-webkit-animation: spHydro 1.2s infinite linear;
+	animation: spHydro 1.2s infinite linear;
+}
+.sp-hydrogen:before, .sp-hydrogen:after {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background-color: $spCol;
+	border-radius: 50%;
+}
+.sp-hydrogen:before {
+	top: calc( 50% - 8px );
+	left: calc( 50% - 8px );
+}
+.sp-hydrogen:after {
+	top: 40px;
+	left: -1px;
+}
+@-webkit-keyframes spHydro {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(359deg); }
+}
+@keyframes spHydro {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(359deg); }
+}

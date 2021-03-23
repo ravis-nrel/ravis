@@ -1,0 +1,144 @@
+.time-slider {
+  .content {
+    #time-slider-chart {
+      position: relative;
+      height: 225px;
+
+      #event-lines {
+        height: 188px;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &::-webkit-scrollbar {
+          width: 14px;
+          height: 18px;
+        }
+        &::-webkit-scrollbar-thumb {
+          height: 6px;
+          border: 4px solid rgba(0, 0, 0, 0);
+          background-clip: padding-box;
+          background-color: slategrey;
+          border-radius: 7px;
+        }
+        &::-webkit-scrollbar-button {
+          width: 0;
+          height: 0;
+          display: none;
+        }
+        &::-webkit-scrollbar-corner {
+          background-color: transparent;
+        }
+      }
+
+      ul {
+        position: absolute;
+        padding: 10px 0 0 10px;
+        margin: 0;
+        display: block;
+        width: 1188px;
+
+        .no-click {
+          cursor: default;
+        }
+
+        li {
+          list-style-type: none;
+          float: left;
+          width: 1179px;
+          height: 23px;
+
+          div {
+            float: left;
+          }
+
+          .region-title {
+            color: #fec841;
+            font-size: 12px;
+            padding-right: 5px;
+            width: 180px;
+          }
+
+          &.region-type-region {
+
+            .region-title {
+              font-weight: bold;
+            }
+            svg {
+              display: none;
+            }
+          }
+          &.region-type-site {
+            .region-title {
+              padding-left: 10px;
+              width: 162px;
+              padding-top: 2px;
+            }
+          }
+
+          .outer-circle {
+            stroke: #fec841;
+            stroke-width: 1px;
+            fill: none;
+          }
+          .inner-circle {
+            stroke: none;
+            fill: #fec841;
+          }
+
+          line {
+            fill: none;
+            stroke: #fec841;
+          }
+        }
+      }
+
+      svg.time-selection-chart {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+
+        pointer-events: none;
+
+        .x-axis {
+          // fill: #112C3C;
+          text {
+            text-shadow: 1px 1px 8px #50b5ec;
+            font-weight: bold;
+          }
+        }˝
+
+        .time-indicator {
+          &:hover {
+            cursor: grab;
+          }
+          .outer-circle {
+            stroke: #50b5ec;
+            stroke-width: 1px;
+            fill: none;
+          }
+          .inner-circle {
+            stroke: none;
+            fill: #50b5ec;
+          }
+          .line {
+            stroke: #50b5ec;
+            stroke-width: 2px;
+            stroke-dasharray: 8;
+            fill: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dragging .time-slider .content svg .time-indicator:hover {
+  cursor: grabbing;
+}

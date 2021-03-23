@@ -1,0 +1,76 @@
+
+.app-config {
+  width: 100%;
+  padding: 20px;
+  height: auto;
+  min-height: 500px;
+  font-family: 'Consolas';
+
+
+  .ui.form .field label {
+    color: #FFF;
+  }
+
+  .ui.toggle.checkbox {
+    margin-bottom: 10px;
+
+
+    label:before {
+      background: #3f3f3f;
+    }
+
+    input:focus ~ label:before {
+      background: #3f3f3f;
+    }
+
+
+    label {
+      padding-top: .15em;
+      color: #FFF;
+    }
+
+    input:checked ~ label {
+      color: #FFF !important;
+    }
+  }
+
+  .ui.form .header {
+    color: #BBB
+  }
+
+  #site-accordion {
+    .active.title {
+
+    }
+  }
+
+  .sub-region {
+    margin-left: 30px;
+  }
+
+  h2 {
+    font-family: sans-serif;
+    font-style: normal;
+    letter-spacing: 0.08em;
+  }
+
+  h3 {
+    font-family: sans-serif;
+    font-style: normal;
+    letter-spacing: 0.08em;
+  }
+
+  h4 {
+    font-family: sans-serif;
+    font-style: normal;
+    letter-spacing: 0.08em;
+  }
+
+  .form-body {
+    display: flex;
+    justify-content: space-around;
+    .config-form-group {
+      max-width: 400px;
+    }
+  }
+}

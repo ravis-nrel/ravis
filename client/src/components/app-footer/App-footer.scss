@@ -1,0 +1,42 @@
+.app-footer {
+
+  .footer-branding {
+    font-family: 'Myriad Light';
+    font-size: 14px;
+    text-align: center;
+    line-height: 2;
+    color: #fff;
+  }
+
+  .nrel-brand {
+    width: 275px;
+    float: left;
+    margin-left: 250px;
+  }
+
+  #nrel-brand {
+    background: url('../../images/NREL-logo-white.png') no-repeat;
+    width: 200px;
+    height: 75px;
+    margin: 15px 28px 0px 0px;
+    padding: 0;
+    background-size: 180px;
+    float: right;
+  }
+
+  .doe-brand {
+    width: 240px;
+    float: right;
+    margin-right: 250px;
+  }
+
+  #doe-brand {
+    background: url('../../images/DOE-logo-white.png') no-repeat;
+    width: 200px;
+    height: 55px;
+    margin: 10px 0px 0px 12px;
+    padding: 0;
+    background-size: 200px;
+    float: left
+  }
+}

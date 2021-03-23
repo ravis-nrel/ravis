@@ -1,0 +1,10 @@
+.gitignore
+.nvmrc
+package-lock.json
+package.json 
+README.md 
+yarn.lock
+node_modules
+public
+scripts
+src

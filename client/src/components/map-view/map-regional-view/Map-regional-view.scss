@@ -1,0 +1,17 @@
+$map-frame: 0px;
+
+.map-regional-view {
+
+
+
+  #map-regional-view-pane {
+    background-color: #efefef;
+    position: absolute;
+    top: $map-frame;
+    bottom: $map-frame;
+    left: $map-frame;
+    right: $map-frame;
+  }
+  
+
+}

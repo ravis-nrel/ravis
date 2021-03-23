@@ -1,0 +1,19 @@
+$map-frame: 0px;
+
+.map-place-view {
+
+  .cutout {
+    cursor: pointer;
+  }
+
+  .map-place-view-pane {
+    background-color: #efefef;
+    position: absolute;
+    top: $map-frame;
+    bottom: $map-frame;
+    left: $map-frame;
+    right: $map-frame;
+  }
+  
+
+}

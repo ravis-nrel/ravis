@@ -1,0 +1,209 @@
+$blue-1: #50b5ec;
+$blue-2: #071217;
+$blue-3: #112c3c;
+
+$full-width: 1200px;
+$left-width: 545px;
+$left-height: 674px;
+$left-half-width: 259px;
+$right-width: 643px;
+$card-border-width: 2px;
+
+body {
+  background-color: $blue-2;
+}
+
+body.dragging {
+  cursor: grabbing !important;
+}
+
+.main-content {
+  width: $full-width;
+  margin: 0 auto;
+  color: $blue-1;
+}
+
+.aviano {
+  font-family: aviano-future, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.american-captain {
+  font-family: sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.04em;
+}
+
+.loading {
+  height: 450px;
+  padding-left: 50px;
+  padding-top: 200px;
+  font-size: 30px;
+}
+
+.section {
+  position: relative;
+
+  .head {
+    h3 {
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      font-size: 24px;
+      right: 23px;
+      top: 2px;
+      text-shadow: 1px 1px 8px $blue-1;
+    }
+  }
+}
+
+.card {
+  margin-top: 7px;
+  float: left;
+  box-sizing: content-box;
+
+  .head {
+    position: relative;
+    color: $blue-2;
+    margin-bottom: 4px;
+    font-weight: bold;
+    padding: 4px 4px;
+    font-size: 19px;
+    background: $blue-1;
+    height: 20px;
+
+    .cutout {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+
+    .title {
+      position: absolute;
+      top: 3px;
+      left: 4px;
+    }
+  }
+
+  .content {
+    background: $blue-3;
+    border: $card-border-width solid $blue-1;
+    // box-shadow: inset 0px 0px 1px 1px $blue-1;
+    display: block;
+    position: relative;
+    height: 280px;
+
+    .content-head {
+      display: block;
+      width: 100%;
+      height: 43px;
+      border-bottom: $card-border-width solid $blue-1;
+      position: relative;
+
+      span {
+        text-shadow: 1px 1px 8px $blue-1;
+        position: absolute;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.scroller {
+  max-height: $left-height;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+
+  &::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    background-color: slategrey;
+    border-radius: 7px;
+  }
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+
+.left-content {
+  display: block;
+  float: left;
+  width: $left-width;
+  max-height: $left-height;
+  margin-right: 12px;
+
+  .card {
+    width: $left-width - 20;
+    .content {
+      width: $left-width - 20 - $card-border-width * 2;
+    }
+  }
+
+  .card.half-card {
+    width: $left-half-width;
+    &:nth-child(even) {
+      margin-left: 7px;
+    }
+    .content {
+      width: $left-half-width - $card-border-width * 2;
+    }
+  }
+}
+
+.right-content {
+  display: block;
+  float: left;
+  width: $right-width;
+  max-height: $left-height;
+
+  .scroller {
+    max-height: $left-height - 22;
+  }
+
+  .card {
+    width: $right-width - 19;
+    .content {
+      width: $right-width - 19 - $card-border-width * 2;
+    }
+  }
+}
+
+.bottom-content {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+  .card {
+    width: $full-width;
+    .content {
+      width: $full-width - $card-border-width * 2;
+      height: 240px;
+    }
+  }
+}
+
+.footer-content {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

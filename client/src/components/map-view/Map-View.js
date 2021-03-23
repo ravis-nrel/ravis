@@ -14,14 +14,14 @@ export default class MapView extends Component {
 
     let name = feature.properties.name,
         capacity = numberWithCommas(feature.properties.capacity_mw),
-        ramp = feature.state.hasAlert ? 
+        ramp = feature.state.hasAlert ?
         feature.state.rampDirection + ' by ' + Math.round(feature.state.alertScale * feature.properties.rampThreshold * 100)/100 + ' MW'
         : 'nominal'
 
     let popup = new mapboxgl.Popup({
       closeOnClick: true,
       closeButton: false,
-      className: 'raviz-popup'
+      className: 'ravis-popup'
     })
       .setLngLat(lngLat)
       .setHTML(`
@@ -47,7 +47,7 @@ export default class MapView extends Component {
     let popup = new mapboxgl.Popup({
       closeOnClick: true,
       closeButton: false,
-      className: 'raviz-popup'
+      className: 'ravis-popup'
     })
       .setLngLat(lngLat)
       .setHTML(`

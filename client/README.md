@@ -1,4 +1,4 @@
-# RAVIZ
+# RAVIS
 Viewer for probabilistic solar forecasts
 
 

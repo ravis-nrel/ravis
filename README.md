@@ -4,20 +4,9 @@ The **Resource Forecast and Ramp Visualization for Situational Awareness (RAVIS)
 
 ![RAVIS screenshot](https://github.com/ravis-nrel/ravis/blob/main/assets/ravis.png)
 
-
-RAVIS uses a technology suite that is assembled to provide optimum visualization facility while maintaining a wide pool of potential deployment and client environments. The tool is designed to take advantage of web application technologies, open source visualization libraries and tooling. Utilizing this technology will enable deployment in any environment, using any operating system, and is scalable to much higher spatial and temporal scales of visualization. As a prototype of the tool and demonstrating a use case of variable renewable integration, RAVIS currently integrates site-specific solar power forecasts in the California Independent System Operator (CAISO) and Mid-continent ISO (MISO) footprint from the IBM WattSun forecasting platform, and also superimposes market simulation data for CAISO footprint from as in-house NREL market clearing tool. The tool has the ability to alert the viewer for excessive up or down ramps for both individual solar sites as well as regionally aggregated net-load ramps, and alerts can also be qualified with respect to available flexible generation.
-
-RAVIS is not a turn-key system. It is the product of a research endeavor and is not intended as a commercially viable product. In order to successfully deploy and operate RAVIS it is required to have a minimum basic understanding of web application software development and operations support knowledge. Some experience with NodeJS development and a working understanding of web-based mapping, including serving vector tile data, are also highly recommended. This guide does not attempt to describe steps a novice would take to learn how to host a web application of this complexity, but rather provides details relating to the unique aspects of this system
-
-RAVIS is a software system comprised of four distinct parts. All four need to be provisioned and configured to work together to operate RAVIS. These software systems include:
-1.	The web client – the app users will see as documented above
-2.	Server side API - Manage communication between the web client and data streams
-3.	Data Streams – Raw data from a variety of sources. Data streams are unique and in many cases proprietary for each installation. Data streams could include power forecasts, market forecasts, weather forecasts, site metrics, and so on. RAVIS’ fundamental functionality is built on solar power forecast data and at a minimum this is what is required.
-4.	Map layer service – A service that provides base layers and any additional static map layers desired. Examples include transmission line data, roads, political boundaries, bodies of water, etc.
-
-The RAVIS code itself encompasses items 1 and 2: The web client code and the server side API that supports it. RAVIS does not include mapping services, nor any data streams. Data streams are not provided by RAVIS, but are required in order to run it. RAVIS is a visualization tool that consumes data streams that you provide. Documentation for configuring and formatting a data stream is provided below. Similarly, map layer services are not provided by RAVIS, but are required in order to run it. By default a limited number of simple map layers are enabled that are hosted by NREL to serve as an example. There are a plethora of map layer services available both commercially and open source. It is also possible to host a local map layer provider if desired. Some examples of compatible services include https://carto.com/,  https://www.mapbox.com/maps/, and https://www.openstreetmap.org/#map=5/38.007/-95.844.
-
 ## Table of contents
+- [Introduction](#introduction)
+- [Quick Start](#quick-start)
 - [Web Client](#web-client)
   - [Development Environment](#client-development-environment)
   - [Configuration](#client-configuration)
@@ -31,6 +20,33 @@ The RAVIS code itself encompasses items 1 and 2: The web client code and the ser
   - [Forecast](#forecast)
     - [Forecast Formats](#forecast-formats)
 - [License](#license)
+
+## Introduction
+RAVIS uses a technology suite that is assembled to provide optimum visualization facility while maintaining a wide pool of potential deployment and client environments. The tool is designed to take advantage of web application technologies, open source visualization libraries and tooling. Utilizing this technology will enable deployment in any environment, using any operating system, and is scalable to much higher spatial and temporal scales of visualization. As a prototype of the tool and demonstrating a use case of variable renewable integration, RAVIS currently integrates site-specific solar power forecasts in the California Independent System Operator (CAISO) and Mid-continent ISO (MISO) footprint from the IBM WattSun forecasting platform, and also superimposes market simulation data for CAISO footprint from as in-house NREL market clearing tool. The tool has the ability to alert the viewer for excessive up or down ramps for both individual solar sites as well as regionally aggregated net-load ramps, and alerts can also be qualified with respect to available flexible generation.
+
+RAVIS is not a turn-key system. It is the product of a research endeavor and is not intended as a commercially viable product. In order to successfully deploy and operate RAVIS it is required to have a minimum basic understanding of web application software development and operations support knowledge. Some experience with NodeJS development and a working understanding of web-based mapping, including serving vector tile data, are also highly recommended. This guide does not attempt to describe steps a novice would take to learn how to host a web application of this complexity, but rather provides details relating to the unique aspects of this system
+
+RAVIS is a software system comprised of four distinct parts. All four need to be provisioned and configured to work together to operate RAVIS. These software systems include:
+1.	The web client – the app users will see as documented above
+2.	Server side API - Manage communication between the web client and data streams
+3.	Data Streams – Raw data from a variety of sources. Data streams are unique and in many cases proprietary for each installation. Data streams could include power forecasts, market forecasts, weather forecasts, site metrics, and so on. RAVIS’ fundamental functionality is built on solar power forecast data and at a minimum this is what is required.
+4.	Map layer service – A service that provides base layers and any additional static map layers desired. Examples include transmission line data, roads, political boundaries, bodies of water, etc.
+
+The RAVIS code itself encompasses items 1 and 2: The web client code and the server side API that supports it. RAVIS does not include mapping services, nor any data streams. Data streams are not provided by RAVIS, but are required in order to run it. RAVIS is a visualization tool that consumes data streams that you provide. Documentation for configuring and formatting a data stream is provided below. Similarly, map layer services are not provided by RAVIS, but are required in order to run it. By default a limited number of simple map layers are enabled that are hosted by NREL to serve as an example. There are a plethora of map layer services available both commercially and open source. It is also possible to host a local map layer provider if desired. Some examples of compatible services include https://carto.com/,  https://www.mapbox.com/maps/, and https://www.openstreetmap.org/#map=5/38.007/-95.844.
+
+## Quick Start
+RAVIS includes a quick start script and set of Docker containers you can use to get running right away. Before executing the script you must have the following dependencies installed on your computer:
+1. NodeJS v12
+2. Yarn
+3. Docker
+4. Docker-compose
+
+When those requirements are met, simply run the bash script:
+```
+./quick-start.sh
+```
+
+Voila! RAVIS is running and accessible at http://localhost
 
 ## Web Client
 The web client is an application constructed according the latest industry standards for performance, scalability, and most importantly cutting edge visualization techniques. The user interface is implemented as a collection of components with varying degrees of interconnectivity. The UI components include things like a central map with a variety of data being updated in real time, ramp event probability forecasts, detailed analysis charts, configuration pages, and meteorological data over time.
@@ -188,8 +204,10 @@ While an installation with a very large number of regions and/or solar plants co
         "name": "AlamogordoPV",
         "showForecast": false,
         "regionId": 1
-      },
-      ...
+      }
+    ]
+  }
+]
 ```
 
 Regardless of the storage mechanism chosen for the region and plant data, this format is what the client is able to consume and hence the output of the API must be consistent with this example format.

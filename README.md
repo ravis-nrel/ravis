@@ -64,7 +64,7 @@ Once you have cloned the repository, there are a few dependencies that need to b
 # change into the client directory
 cd client
 # install dependencies with yarn
-yarn
+yarn install
 # serve with hot reload at localhost:8088
 yarn start
 # build for production with minification
@@ -76,7 +76,7 @@ First ensure that the default configuration is suitable for your instance, and/o
   - `Config.js/apiUrl` or `env.API_URL` - the URL of the RAVIS [Serverside API](#serverside-api)
   - `Config.js/mapTilerKey` or `env.MAP_TILER_KEY` - the API key used for requests to https://cloud.maptiler.com.
 
-In addition to the above please review the [react-app documentation](https://facebook.github.io/create-react-app/docs/getting-started) for a plethora of additional tips and tricks for working within this web framework including
+In addition to the above please review the [react-app documentation](https://create-react-app.dev/docs/getting-started) for a plethora of additional tips and tricks for working within this web framework including
   - the use of the public directory
   - custom environment variables
   - the `.env` file
@@ -111,7 +111,7 @@ Once you have cloned the repository, there are a few dependencies that need to b
 # change into the client directory
 cd server
 # install dependencies with yarn
-yarn
+yarn install
 # serve with hot reloading at https://localhost:3000
 yarn start-dev
 # Or for more efficient runtime without hot reloading,

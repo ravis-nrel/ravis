@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn run build`
+### `yarn build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,9 +29,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### yarn containerize
 
-Creates a docker image containing the compiled code. The image serves static files from behind an NGINX proxy. `yarn build` must be run first
+## Docker
+This application can very effectively be made into a Docker image. For a more comprehensive understanding please read the Docker section of the main README.
 
-
-Following these steps, simply update the ECS service named "gds-ravis-client-dev" by checking "Force new deployment".
+`docker build -t ravis-client .`

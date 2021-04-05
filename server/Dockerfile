@@ -1,5 +1,5 @@
-# Use the base image from ../openresty
-FROM node:10-alpine
+# Use the base image from node alpine for version 12
+FROM node:12-alpine
 
 # Install yarn
 RUN set -ex && apk add --no-cache yarn

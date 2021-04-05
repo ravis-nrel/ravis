@@ -1,6 +1,6 @@
 module.exports = {
   // this is default if API_URL env is unset
-  apiUrl: process.env.API_URL || "http://localhost:3088/api",
+  apiUrl: process.env.API_URL || "http://localhost:3000/api",
   regionsProxyUrl: "/v1/sites",
   forecastProxyUrl: "/v1/forecast",
   forecastHorizon: 5,

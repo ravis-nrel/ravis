@@ -1,0 +1,42 @@
+{
+  "0": {
+    "data": [
+      {
+        "layerName": "sp_mean",
+        "dataset": "Solar Forecast",
+        "timestamp": 1503320400000,
+        "value": 0.622
+      },
+      {
+        "layerName": "sp_95_lower_ci",
+        "dataset": "Solar Forecast",
+        "timestamp": 1503320400000,
+        "value": 0.5598
+      },
+      {
+        "layerName": "sp_95_upper_ci",
+        "dataset": "Solar Forecast",
+        "timestamp": 1503320400000,
+        "value": 0.6842
+      },
+      {
+        "layerName": "sp_mean",
+        "dataset": "Solar Forecast",
+        "timestamp": 1503320700000,
+        "value": 0.772
+      },
+      {
+        "layerName": "sp_95_lower_ci",
+        "dataset": "Solar Forecast",
+        "timestamp": 1503320700000,
+        "value": 0.6948
+      },
+      {
+        "layerName": "sp_95_upper_ci",
+        "dataset": "Solar Forecast",
+        "timestamp": 1503320700000,
+        "value": 0.8492000000000001
+      }
+    ]
+  }
+}

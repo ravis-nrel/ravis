@@ -35,7 +35,7 @@ RAVIS is a software system comprised of four distinct parts. All four need to be
 The RAVIS code itself encompasses items 1 and 2: The web client code and the server side API that supports it. RAVIS does not include mapping services, nor any data streams. Data streams are not provided by RAVIS, but are required in order to run it. RAVIS is a visualization tool that consumes data streams that you provide. Documentation for configuring and formatting a data stream is provided below. Similarly, map layer services are not provided by RAVIS, but are required in order to run it. By default a limited number of simple map layers are enabled that are hosted by NREL to serve as an example. There are a plethora of map layer services available both commercially and open source. It is also possible to host a local map layer provider if desired. Some examples of compatible services include https://carto.com/,  https://www.mapbox.com/maps/, and https://www.openstreetmap.org/#map=5/38.007/-95.844.
 
 ## Quick Start
-RAVIS includes a quick start script and set of Docker containers you can use to get running right away. Before executing the script you must have the following dependencies installed on your computer:
+RAVIS includes a quick start script and set of Docker containers you can use to get running right away. The quick start process includes installing local NPM dependencies, then leverages `docker-compose` to start instances of both the client and the API. Before executing the script you must have the following dependencies installed on your computer:
 1. NodeJS v12
 2. Yarn
 3. Docker

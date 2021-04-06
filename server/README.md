@@ -1,6 +1,29 @@
 # RAVIS Server
 The server codebase includes the RAVIS serverside API code and other necessary project assets. This is an Express HTTP serivce providing a collection of a few necessary endpoints. These endpoints provide access to forecast data from any integrated providers, as well as application configuration variables. This service has been deliberately designed to be as simple as possible. Currently, the endpoint serves as a simple proxy for fetching the static solar forecast data used as an example. In a fully provisioned deployment it is reasonable to assume that there would be a significant amount of extra code written to consume, process, and serve various forecast datasets.
 
+## Getting Started
+First install necessary dependencies in your system, then run the following terminal commands.
+
+* NodeJS >= v12
+* yarn
+
+``` bash
+# change into the client directory
+cd server
+# install dependencies with yarn
+yarn install
+# serve with hot reloading at https://localhost:3000
+yarn start-dev
+# Or for more efficient runtime without hot reloading,
+yarn start
+```
+
+### Server Configuration
+There are a small selection of configuration items for the server side. These are located in ./server/config/*.yml files where each file provides configuration for a given runtime environment. Current configuration variables include:
+  - PORT = the HTTP port on which to make the service available
+  - DATA_DIR = the directory in which the region, site, and forecast data files are stored
+
+
 ## Organization
 The server code is quite simple to follow and understand.
 - `index.js` - Includes the wiring up of the HTTP service itself and is the main entry point for the server application

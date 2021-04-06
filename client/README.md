@@ -1,6 +1,36 @@
 # RAVIS Client
 The client codebase includes the RAVIS web viewer code and other necessary project assets. This project started life as a Create React App project that was subsequently ejected and customized. However there are still many useful configuration and deployment tips that can be learned from the documentation at https://create-react-app.dev/
 
+## Getting Started
+First install necessary dependencies in your system, then run the following terminal commands.
+
+* NodeJS >= v12
+* yarn
+
+``` bash
+# change into the client directory
+cd client
+# install dependencies with yarn
+yarn install
+# serve with hot reload at localhost:8088
+yarn start
+# build for production with minification
+yarn build
+```
+
+### Client Configuration
+First ensure that the default configuration is suitable for your instance, and/or edit as needed. Configuration is located in [this JS file](./client/src/data/Config.js). Of note, you will likely need to edit at least the `apiUrl` and the `mapTilerKey` properties. These two configuration variables are also assignable via environment variable.
+  - `Config.js/apiUrl` or `env.API_URL` - the URL of the RAVIS [Serverside API](#serverside-api)
+  - `Config.js/mapTilerKey` or `env.MAP_TILER_KEY` - the API key used for requests to https://cloud.maptiler.com.
+
+In addition to the above please review the [react-app documentation](https://create-react-app.dev/docs/getting-started) for a plethora of additional tips and tricks for working within this web framework including
+  - the use of the public directory
+  - custom environment variables
+  - the `.env` file
+  - testing
+  - build optimizations
+  - much more
+
 ## Organization
 The user interface is implemented as a single page web application in which all user interaction takes place within a customizable dashboard. This is achieved via a modular architecture in which each functional aspect is contained in a set of files constituting a single component. Each component maintains an insular set of functionalities and actions. By isolating each functional block within its own component, this design supports more efficient development, extension, and ultimately support. This will benefit us greatly in the future as new features and datasets are integrated, new components are required, and new requirements emerge for existing components.
 

@@ -52,7 +52,7 @@ When those requirements are met, simply run the bash script:
 Voila! RAVIS is running and accessible at http://localhost
 
 ## Developer Considerations
-While developing in RAVIS it is ideal to run the client and server applications in separate terminal sessions. This is the only built-in means of support the full suite of hot-reload and debugging features.
+While developing in RAVIS it is ideal to run the client and server applications in separate terminal sessions. This is the only built-in means of support for the full suite of hot-reload and debugging features.
 
 ### Docker
 For convenience, both the client and the server applications include a Dockerfile. These enable usage of the RAVIS system as docker containers, however are not convenient for use during active development.

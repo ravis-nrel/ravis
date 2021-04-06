@@ -11,23 +11,24 @@ Component directories include all of the pieces that come together to create tha
   - The react component code
   - Assignment of the redux stateful props and actions
   - Styles (scss and css)
-  - In the case of map components the MapboxGL style specifications are included as well
+  - In the case of map components the MapboxGL style specifications are included
+
 The only exception to this pattern are images, which are all consolidated into `client/images/`.
 
 ### Services
-The RAVIS client utilizes a type of class we call a service. These services are responsible for handling data related concernes. Services are located at `cient/src/data/*Service.js`. Services are organized by the type of data they manage, e.g. Foreceast, Site, Region, or Alert data. Services are responsible for
-  - Fetching data from the API, including regular re-fetching of forecasts
+The RAVIS client utilizes a type of class denominated as a service. Services are responsible for handling data related concernes. Services are located at `cient/src/data/*Service.js`. Services are organized by the type of data they manage, e.g. Foreceast, Site, Region, or Alert data. Services are responsible for
+  - Fetching data from the API, including regularly scheduled re-fetching of forecasts
   - Performing on-the-fly aggregation of data
-  - Applying business logic to the data to identify alerts
-  - Applying relevant client configuration and settings to the data
-  - Formatting the API provided data into the shape necessary for consumption by various components
+  - Applying business logic to the raw data to create derived data products, e.g. identifying power ramp alerts
+  - Applying relevant client configuration and settings to the data, e.g. assigning ramp threshold settings to ramp alert detection
+  - Formatting the API provided data into the shape necessary for consumption by various components, e.g. chart vs map vs time slider
 
 If you are seeking to augment alerting functionality, integrate new types of forecasts, or add new business logic that involves access to the unprocesses API data, these services are the place to look.
 
 ### State
 The RAVIS client utilizes Redux for managing state. It is outside of the scope of this documentation to attempt to teach Redux, however [the Redux homepage](https://redux.js.org/) is a good place to start.
 
-RAVIS employs an organizational structure to assist in easily identifying all aspects of state. All of the actions and reducers are defined at the top level in `client/src/`. The reducers are further organized into logical groupings including analysis, and data based state. Each component includes its own dedicated `selectors.js` file which acts as a single destination for making stateful props and dispatchable actions available to each component.
+RAVIS employs an organizational structure to assist in easily identifying all aspects of state. All of the actions and reducers are defined at the top level in `client/src/`. The reducers are further organized into two categories, one for analysis and one for data. Each component includes its own dedicated `selectors.js` file which acts as a single destination for making stateful props and dispatchable actions available to each component.
 
 ## Available Scripts
 In the project directory, you can run:

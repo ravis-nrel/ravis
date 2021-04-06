@@ -7,6 +7,7 @@ The **Resource Forecast and Ramp Visualization for Situational Awareness (RAVIS)
 ## Table of contents
 - [Introduction](#introduction)
 - [Quick Start](#quick-start)
+- [Production Considerations](#production-considerations)
 - [Web Client](#web-client)
   - [Development Environment](#client-development-environment)
   - [Configuration](#client-configuration)
@@ -47,6 +48,13 @@ When those requirements are met, simply run the bash script:
 ```
 
 Voila! RAVIS is running and accessible at http://localhost
+
+## Production Considerations
+When deploying RAVIS to production it is important to consider the performance of the application with respect to both the number of users you wish to support and the size of the data you wish to visualize. The client code runs on a browser and hence the visualization engine is subject to the limitations of the user’s computer. This would typically only become an issue when configuring RAVIS to display many hundreds of sites concurrently, and even then only if a user’s computer has a modest GPU.
+
+The API service requires a deployment stack with enough resources to accommodate the peak anticipated number of concurrent requests to load the static web assets as well as API calls to fetch site and forecast data. In addition it may be convenient to run a background process on this instance to fetch, format, and store up to date forecast data. Serving the static web assets is trivial unless supporting many thousands of users. The performance considerations for the API endpoints and any forecast daemons are contingent upon the number of sites supported, and the forecast data itself. How often the forecasts will be updated, how large the forecast data is, and how much processing is required to manipulate the data into a format that RAVIS can consume are all aspects of this performance consideration.
+
+Finally, it is important to understand that RAVIS does not include any built in security mechanisms. As written all web pages and API endpoints are fully unprotected. Depending on the nature of your installation, and any privacy concerns with the data being served, it may be necessary to adopt a secure deployment platform. To this end RAVIS utilizes very common and widely adopted web tools and protocols for which there exist many security modules and strategies. Identifying the right one(s) for your installation is best handled by the operations and cyber security specialists in your organization.
 
 ## Web Client
 The web client is an application constructed according the latest industry standards for performance, scalability, and most importantly cutting edge visualization techniques. The user interface is implemented as a collection of components with varying degrees of interconnectivity. The UI components include things like a central map with a variety of data being updated in real time, ramp event probability forecasts, detailed analysis charts, configuration pages, and meteorological data over time.

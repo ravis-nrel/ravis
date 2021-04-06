@@ -1,4 +1,4 @@
-# RAVIS
+# RAVIS Client
 The client codebase includes the RAVIS web viewer code and other necessary project assets. This project started life as a Create React App project that was subsequently ejected and customized. However there are still many useful configuration and deployment tips that can be learned from the documentation at https://create-react-app.dev/
 
 ## Organization

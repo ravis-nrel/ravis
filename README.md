@@ -7,6 +7,8 @@ The **Resource Forecast and Ramp Visualization for Situational Awareness (RAVIS)
 ## Table of contents
 - [Introduction](#introduction)
 - [Quick Start](#quick-start)
+- [Developer Considerations](#developer-considerations)
+  - [Docker](#docker)
 - [Production Considerations](#production-considerations)
 - [Web Client](#web-client)
   - [Development Environment](#client-development-environment)
@@ -48,6 +50,14 @@ When those requirements are met, simply run the bash script:
 ```
 
 Voila! RAVIS is running and accessible at http://localhost
+
+## Developer Considerations
+While developing in RAVIS it is ideal to run the client and server applications in separate terminal sessions. This is the only built-in means of support the full suite of hot-reload and debugging features.
+
+### Docker
+For convenience, both the client and the server applications include a Dockerfile. These enable usage of the RAVIS system as docker containers, however are not convenient for use during active development.
+
+As a further convenience a Docker-compose file is made available at the project root. This is utilized by the [Quick Start](#quick-start) script and is a fast and easy way to boot up the entire system at any time.
 
 ## Production Considerations
 When deploying RAVIS to production it is important to consider the performance of the application with respect to both the number of users you wish to support and the size of the data you wish to visualize. The client code runs on a browser and hence the visualization engine is subject to the limitations of the user’s computer. This would typically only become an issue when configuring RAVIS to display many hundreds of sites concurrently, and even then only if a user’s computer has a modest GPU.
@@ -218,7 +228,7 @@ While an installation with a very large number of regions and/or solar plants co
 ]
 ```
 
-Regardless of the storage mechanism chosen for the region and plant data, this format is what the client is able to consume and hence the output of the API must be consistent with this example format.
+For more details and definitions please see https://github.com/ravis-nrel/ravis/tree/main/server#apiv1sites. Regardless of the storage mechanism chosen for the region and plant data, this format is what the client is able to consume and hence the output of the API must be consistent with this example format.
 
 ### Forecast
 Forecast data is published by forecasters. This project does not provide any built-in forecasters, however a static example of forecast data is included for demonstration purposes. The data format retrieved from the API must adhere to the following formats in order for RAVIS to consume them.
@@ -270,6 +280,7 @@ Forecast as fetched from the API
 }
 ```
 
-## License
+For more details and definitions please see https://github.com/ravis-nrel/ravis/tree/main/server#apiv1forecast.
 
+## License
 [View License](LICENSE)

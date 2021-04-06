@@ -50,6 +50,6 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Docker
-This application can very effectively be made into a Docker image. For a more comprehensive understanding please read the Docker section of the main README.
+This application can very effectively be made into a Docker image. For a more comprehensive understanding please read the [Docker section](https://github.com/ravis-nrel/ravis#docker) of the main README.
 
 `docker build -t ravis-client .`

@@ -1,5 +1,5 @@
 # RAVIS Server
-The server codebase includes the RAVIS serverside API code and other necessary project assets. This is an Express HTTP serivce providing a collection of a few necessary endpoints. These endpoints provide access to forecast data from any integrated providers as well as application configuration variables. This service is deliberately being designed to be as simple as possible. Currently, the endpoint serves as a simple proxy for fetching the static solar forecast data used as an example.
+The server codebase includes the RAVIS serverside API code and other necessary project assets. This is an Express HTTP serivce providing a collection of a few necessary endpoints. These endpoints provide access to forecast data from any integrated providers, as well as application configuration variables. This service has been deliberately designed to be as simple as possible. Currently, the endpoint serves as a simple proxy for fetching the static solar forecast data used as an example. In a fully provisioned deployment it is reasonable to assume that there would be a significant amount of extra code written to consume, process, and serve various forecast datasets.
 
 ## Organization
 The server code is quite simple to follow and understand.
@@ -8,7 +8,7 @@ The server code is quite simple to follow and understand.
 - `/src/routes/index.js` - Defines all the routes this API is listening on
 - `/src/controllers/*.js` - The controllers handle the requests received
 - `/src/models/*.js` - For more sophisticated endpoints, model code would handle data parsing and formatting, database access, etc. Current data is too simplistic to require model code, but during integration of proprietary forecast data at NREL we used several models to facilitate the endpoints ability to server more complex data
-- `/src/utils/*.js` - Utility code that doesn't quite match model or controller use case
+- `/src/utils/*.js` - Utility code and support classes
 - `/src/views/*.hbs` - View templates. While this application doesn't serve web pages per se, it does include views for error pages and a basic homepage useful for a health check or ping monitor
 
 ## Endpoints
@@ -41,13 +41,13 @@ The sites endpoint provides metadata and details describing all available region
 http://localhost:3000/api/v1/sites?dataset=eclipse
 
 #### Inputs
-- `dataset` - identifies the name of the dataset to return sites for. This supports an installation that serves data from more than one dataset, each with a potentially unique set of sites
+- `dataset` - Identifies the name of the dataset to return sites for. This supports an installation that serves data from more than one dataset, each with a potentially unique set of sites
 
 #### Output Format
 Includes all of the standard fields as documented at [Endpoints](#endpoints), where the `result` property is an array of objects defining regions and nested sites including the following properties.
 - `id` = Unique ID for the region
-- `capacity_mw` = the total power generation for this region in MW
-- `load_capacity_mw` = the total load capacity for this region in MW
+- `capacity_mw` = The total power generation for this region in MW
+- `load_capacity_mw` = The total load capacity for this region in MW
 - `name` = A user friendly display name for this region
 - `centroid` = The longitude and latitude at the center of this region expressed as a float array `[lon, lat]`
 - `defaultExtent` = The default extent of this region for use in the map view component expressed as an array of lower left, upper right corners `[[lon, lat], [lon, lat]]`
@@ -78,7 +78,7 @@ http://localhost:3000/api/v1/forecast?dataset=eclipse&siteId=1
 
 #### Output Format
 Includes all of the standard fields as documented at [Endpoints](#endpoints), where the `result` property is an object containing basic forecast metadata as well as an array of objects defining forecast data for the site.
-- `forecastTimestamp` = The timestamp at which this forecast was generation as a timestamp in UTC
+- `forecastTimestamp` = The timestamp at which this forecast was generated as a timestamp in UTC
 - `nextForecastTimestamp` = The timestamp at which the next iteration of the forecast is expected to become available as a timestamp in UTC
 - `data` = An array of objects including the actual forecast values
   - `data[].layerName` = The name of the forecast layer, or forecast probability. Options include:
@@ -93,3 +93,8 @@ Includes all of the standard fields as documented at [Endpoints](#endpoints), wh
 When deploying RAVIS to production it is important to consider the performance of the application with respect to both the number of users you wish to support and the size of the data you wish to visualize. The API service requires a deployment stack with enough resources to accommodate the peak anticipated number of concurrent requests to load the static web assets as well as API calls to fetch site and forecast data.
 
 In addition it may be convenient to run a background process on this instance to fetch, format, and store up to date forecast data. Serving the static web assets is trivial unless supporting many thousands of users. The performance considerations for the API endpoints and any forecast daemons are contingent upon the number of sites supported, and the forecast data itself. How often the forecasts will be updated, how large the forecast data is, and how much processing is required to manipulate the data into a format that RAVIS can consume are all aspects of this performance consideration.
+
+## Docker
+This application can very effectively be made into a Docker image. For a more comprehensive understanding please read the [Docker section](https://github.com/ravis-nrel/ravis#docker) of the main README.
+
+`docker build -t ravis-server .`

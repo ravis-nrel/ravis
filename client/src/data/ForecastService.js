@@ -138,9 +138,42 @@ class Forecast {
     return formattedForecast;
   }
 
+  _getDataFileName(dataset, includeProbability=true) {
+    let dataFileName = "generation_utility_pv";
+    dataFileName += dataset === 'eclipse' ? '_eclipse' : "_no_eclipse";
+    dataFileName += includeProbability ? '_prob' : '_no_prob';
+    dataFileName += '.json';
+    return dataFileName;
+  }
+
   /**
-    * Loads the forecast for a given site and post processes that data to
-    * detect alerts and other items of note.
+    * Loads the forecast for a given site from a local file and post processes
+    * that data to detect alerts and other items of note.
+    *
+    * @return a fetch promise
+    */
+  fetchForecastViaFile(site, dataset) {
+    let forecasts = this.getForecasts();
+
+    return Promise.resolve(this._getDataFileName(dataset, CONFIG.includeProbability))
+      .then((dataFileName) => {
+        const jsonData = require(`./${dataFileName}`);
+        return jsonData[site.id];
+      })
+      .then(siteData => {
+        let formattedForecast = this._formatForecastResponse(site, siteData);
+        forecasts.push(formattedForecast);
+        site.disabled = false;
+        return formattedForecast;
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  /**
+    * Loads the forecast for a given site from a remote API and post
+    * processes that data to detect alerts and other items of note.
     *
     * @return a fetch promise
     */
@@ -212,7 +245,7 @@ class Forecast {
         sites.forEach((site) => {
           setTimeout(() => {
             site.disabled = false;
-            this.fetchForecastViaProxy(site, dataset)
+            this.fetchForecastViaFile(site, dataset)
               .catch(e => {
                 site.disabled = true;
               })

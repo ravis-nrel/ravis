@@ -19,6 +19,12 @@ class RegionService {
     return this._data;
   }
 
+  getRegionsViaFile(dataset) {
+    const jsonData = require('./caiso-utility-sites.json');
+    this._data.splice(0, this._data.length, ...jsonData);
+    return Promise.resolve(this.getRegions());
+  }
+
   getRegionsViaProxy(dataset) {
     let url,
         opts = {

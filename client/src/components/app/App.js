@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   initializeDatasets(activeDataset) {
-    RegionService.getRegionsViaProxy(activeDataset)
+    RegionService.getRegionsViaFile(activeDataset)
       .then(regions => {
         this.props.fetchSites(activeDataset);
         this.startEternalForecastFetching();

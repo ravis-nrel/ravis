@@ -1,5 +1,16 @@
 .time-slider {
   .content {
+
+    .outer-circle {
+      stroke: #fec841;
+      stroke-width: 1px;
+      fill: none;
+    }
+    .inner-circle {
+      stroke: none;
+      fill: #fec841;
+    }
+
     #time-slider-chart {
       position: relative;
       height: 225px;
@@ -80,16 +91,6 @@
               width: 162px;
               padding-top: 2px;
             }
-          }
-
-          .outer-circle {
-            stroke: #fec841;
-            stroke-width: 1px;
-            fill: none;
-          }
-          .inner-circle {
-            stroke: none;
-            fill: #fec841;
           }
 
           line {

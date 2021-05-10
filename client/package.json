@@ -2,6 +2,7 @@
   "name": "@ravis-nrel/client",
   "version": "0.1.0",
   "appPath": "ravis",
+  "homepage": "https://maps.nrel.gov/ravis",
   "dependencies": {
     "@turf/bbox": "^6.0.1",
     "@turf/buffer": "^5.1.5",

@@ -1,0 +1,65 @@
+.app nav {
+  ul.menu,
+  ul.sub-menu {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+
+    > li.menu-item {
+      list-style-type: none;
+      flex: initial;
+      position: relative;
+
+      > * {
+        display: inline-block;
+      }
+
+      .submenu-chevron {
+        width: 10px;
+        height: 10px;
+        margin-left: 5px;
+        transform: rotate(270deg);
+        position: relative;
+        top: 1px;
+        transition: transform 0.2s;
+      }
+
+      > ul.sub-menu {
+        display: none;
+        justify-content: flex-start;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+
+        > li.menu-item {
+          list-style-type: none;
+
+          // We're not currently using them, but this enables arbitrarily nested menus
+          > ul.sub-menu {
+            top: 0;
+            left: 100%;
+          }
+        }
+      }
+
+      &:hover {
+        .submenu-chevron {
+          transform: rotate(90deg);
+        }
+      }
+
+      &:hover > ul.sub-menu {
+        display: flex;
+        padding: 0;
+        z-index: 1;
+        width: max-content;
+      }
+    }
+
+    > li.menu-spacer {
+      flex-grow: 1;
+      max-width: 100%;
+      flex-basis: 0;
+    }
+  }
+}

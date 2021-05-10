@@ -111,7 +111,7 @@ class App extends Component {
       <Router>
         <div id="app" className="app">
           <NRELHeader
-            appTitle="RaViS"
+            appTitle="RAVIS"
           >
             <Menu>
               <MenuLink to="/">Home</MenuLink>
@@ -123,7 +123,7 @@ class App extends Component {
                 />
                 <ExternalMenuLink
                   to="https://github.com/ravis-nrel/ravis"
-                  label={<span className="nav-link-span">RaViS Open Source <LaunchIcon /></span>}
+                  label={<span className="nav-link-span">RAVIS Open Source <LaunchIcon /></span>}
                 />
               </SubMenu>
             </Menu>
@@ -148,7 +148,7 @@ class App extends Component {
             }
           </div>
             <div className="acknowledgement">
-              <h4>RaViS is developed and maintained by the National Renewable Energy Laboratory with funding and support from the U.S. Department of Energy's Solar Energy Technologies Office (SETO).</h4>
+              <h4>RAVIS is developed and maintained by the National Renewable Energy Laboratory with funding and support from the U.S. Department of Energy's Solar Energy Technologies Office (SETO).</h4>
             </div>
           <div className="footer-content">
             <NRELFooter />

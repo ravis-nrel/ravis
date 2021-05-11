@@ -114,8 +114,8 @@ class App extends Component {
             appTitle="RAVIS"
           >
             <Menu>
-              <MenuLink to="/">Home</MenuLink>
-              <MenuLink to="/config">Settings</MenuLink>
+              <MenuLink to={ basePath }>Home</MenuLink>
+              <MenuLink to={ `${basePath}config` }>Settings</MenuLink>
               <SubMenu label="Documentation">
                 <ExternalMenuLink
                   to="https://www.nrel.gov/docs/fy21osti/79746.pdf"

@@ -199,12 +199,8 @@ class AppConfigEditor extends Component {
   }
 
   handleCreateCustomRegion() {
-
-    let customRegion = RegionService.createCustomRegion(this.state.customRegionName, this.state.customRegionSites);
-
-    if (!customRegion.sites.length) {
-      return;
-    } else {
+    if (this.state.customRegionName !== '' && this.state.customRegionSites.length > 0) {
+      let customRegion = RegionService.createCustomRegion(this.state.customRegionName, this.state.customRegionSites);
       RegionService.addNewRegion(customRegion);
       this.props.updateAddNewRegionTimestamp();
       this.setState({
@@ -342,7 +338,7 @@ class AppConfigEditor extends Component {
                 toggle
                 name='activeDataset'
                 label="NREL Sample Data with Eclipse"
-                value="ibm"
+                value="eclipse"
                 checked={this.state.activeDataset === 'eclipse'}
                 onChange={this.handleInputChange} /><br />
               <Radio

@@ -2,6 +2,10 @@
 
 The **Resource Forecast and Ramp Visualization for Situational Awareness (RAVIS)** is an open-source tool for visualizing variable renewable resource forecasts and ramp alerts for significant up/down ramps in renewable resource and the consequent net-load. The modular dashboard of RAVIS contains configurable panes for viewing- probabilistic time series forecasts, ramp event alerts on the look-ahead timeline, spatially resolved resource sites and forecasts, and system simulation and market clearing data such as transmission lines utilization, nodal prices and available generation flexibility.
 
+Read the [full report here](https://www.nrel.gov/docs/fy21osti/79746.pdf)
+
+Visit the [demo site here](https://maps.nrel.gov/ravis)
+
 ![RAVIS screenshot](https://github.com/ravis-nrel/ravis/blob/main/assets/ravis.png)
 
 ## Table of contents

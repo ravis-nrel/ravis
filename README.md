@@ -4,6 +4,8 @@ The **Resource Forecast and Ramp Visualization for Situational Awareness (RAVIS)
 
 Read the [full report here](https://www.nrel.gov/docs/fy21osti/79746.pdf)
 
+Read our [EnergyVis 2021](https://energyvis.org/) [conference paper here](https://www.nrel.gov/docs/fy21osti/79786.pdf)
+
 Visit the [demo site here](https://maps.nrel.gov/ravis)
 
 ![RAVIS screenshot](https://github.com/ravis-nrel/ravis/blob/main/assets/ravis.png)
